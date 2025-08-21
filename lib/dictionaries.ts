@@ -1,0 +1,1 @@
+export const uiLocales=['en','es'] as const; export type UILocale=typeof uiLocales[number]; export async function getDictionary(locale:UILocale){ switch(locale){ case 'es': return (await import('@/i18n/es.json')).default; default: return (await import('@/i18n/en.json')).default } }

@@ -1,0 +1,26 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Intel+One+Mono:wght@400;600&display=swap');
+:root{--c-bg:#0b0c10;--c-surface:#0f1117;--c-card:#121520;--c-text:#e8eaed;--c-muted:#9aa0a6;--c-border:#242936}
+[data-theme="light"]{--c-bg:#f6f8fb;--c-surface:#fff;--c-card:#fff;--c-text:#0b0c10;--c-muted:#4b5563;--c-border:#e5e7eb}
+html,body{height:100%}
+body{font-family:Inter,system-ui,Segoe UI,Helvetica,Arial,Noto Sans,sans-serif;background:linear-gradient(0deg,#0e1016,#0b0c10);color:var(--c-text)}
+[data-theme="light"] body{background:linear-gradient(0deg,#ffffff,#f6f8fb)}
+.card{background-color:var(--c-card);border:1px solid var(--c-border);border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.select{background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:12px;padding:10px 12px;font-weight:600}
+.label{color:var(--c-muted);display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+.small{color:var(--c-muted);font-size:12px}
+pre,code{font-family:'Intel One Mono',ui-monospace,Menlo,monospace;background:var(--c-surface);color:var(--c-text)}
+.b-pill{background:rgba(122,162,255,.15);border:1px solid var(--c-border);color:var(--c-text);display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .75rem;border-radius:999px;font-weight:600}
+.header-blur{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(10px);background:rgba(14,16,22,.65);border-bottom:1px solid var(--c-border)}
+[data-theme="light"] .header-blur{background:rgba(255,255,255,.65)}
+.container-narrow{max-width:76rem}
+.tab{position:relative;padding:.5rem .75rem;border-radius:.75rem}
+.tab[aria-selected="true"]{background:rgba(122,162,255,.15)}
+.example-card-compact{display:flex;flex-direction:column;gap:2px;padding:.5rem .75rem;border-radius:999px;border:1px solid var(--c-border);background:transparent;white-space:nowrap}
+.example-title{font-weight:600;font-size:.85rem;opacity:.95}
+.example-desc{font-size:.8rem;opacity:.7}
+.toast{position:fixed;right:16px;bottom:16px;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:12px;padding:10px 12px;box-shadow:0 12px 36px rgba(0,0,0,.35);z-index:70}
+.output-full{position:fixed;inset:40px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:16px;padding:16px;z-index:60;box-shadow:0 20px 60px rgba(0,0,0,.5)}
