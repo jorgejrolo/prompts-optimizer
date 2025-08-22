@@ -337,12 +337,41 @@ export default function HomeClient({ dict, localeUI }: { dict: Dict, localeUI: '
             </div>
           )}
           {out && (
-            <pre 
-              className="border border-[color:var(--c-border)] rounded-xl p-4 text-[13px] leading-6 max-h-[520px] overflow-auto bg-[color:var(--c-surface)]" 
-              style={{whiteSpace:'pre-wrap',wordBreak:'break-word',overflowWrap:'anywhere'}}
-            >
-              {tab === 'json' ? JSON.stringify(out, null, 2) : out.optimized_prompt}
-            </pre>
+            <div className="space-y-4">
+              {out.constraints && out.constraints.length > 0 && (
+                <div className="bg-[color:var(--c-surface)]/50 rounded-xl p-4 border border-[color:var(--c-border)]/50">
+                  <div className="text-sm font-semibold mb-2 text-yellow-400">🔧 Constraints Applied:</div>
+                  <ul className="text-xs space-y-1">
+                    {out.constraints.map((constraint, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-yellow-400 mt-0.5">•</span>
+                        <span className="text-[color:var(--c-muted)]">{constraint}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              <pre 
+                className="border border-[color:var(--c-border)] rounded-xl p-4 text-[13px] leading-6 max-h-[520px] overflow-auto bg-[color:var(--c-surface)]" 
+                style={{whiteSpace:'pre-wrap',wordBreak:'break-word',overflowWrap:'anywhere'}}
+              >
+                {tab === 'json' ? JSON.stringify(out, null, 2) : out.optimized_prompt}
+              </pre>
+              
+              {out.examples && out.examples.length > 0 && (
+                <div className="bg-[color:var(--c-surface)]/50 rounded-xl p-4 border border-[color:var(--c-border)]/50">
+                  <div className="text-sm font-semibold mb-2 text-green-400">💡 Usage Examples:</div>
+                  <div className="text-xs space-y-2">
+                    {out.examples.map((example, i) => (
+                      <div key={i} className="bg-[color:var(--c-card)] p-2 rounded border border-[color:var(--c-border)]/30">
+                        <code className="text-green-400">{example}</code>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           )}
           {full && out && (
             <div className="output-full">
